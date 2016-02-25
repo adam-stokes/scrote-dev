@@ -1,0 +1,15 @@
+{
+  "name": "scrote-dev",
+  "version": "1.0.0",
+  "description": "makefile for personal projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/battlemidget/scrote-dev.git"
+  },
+  "author": "Adam Stokes <adam.stokes@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/battlemidget/scrote-dev/issues"
+  },
+  "homepage": "https://github.com/battlemidget/scrote-dev#readme"
+}
