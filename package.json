@@ -11,5 +11,10 @@
   "bugs": {
     "url": "https://github.com/battlemidget/scrote-dev/issues"
   },
-  "homepage": "https://github.com/battlemidget/scrote-dev#readme"
+  "homepage": "https://github.com/battlemidget/scrote-dev#readme",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "bootswatch": "^3.3.6",
+    "jquery": "^2.2.1"
+  }
 }

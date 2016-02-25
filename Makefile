@@ -14,11 +14,19 @@ FONTS_DIR := $(ASSETS_DIR)/fonts
 
 PUBLIC_DIR := $(shell pwd)/public
 
+# bootswatch theme
+# change the theme by:
+#  BOOTSWATCH_THEME = flatly
+#  include node_modules/scrote-dev/Makefile
+BOOTSWATCH := $(MODULES_DIR)/bootswatch
+BOOTSWATCH_THEME ?= simplex
+
 test:
 	NODE_ENV=$(NODE_ENV) $(MOCHA)
 
 vendor-sync:
 	@rsync -avz $(BOOTSTRAP_SASS)/stylesheets/* $(CSS_DIR)/.
+	@rsync -avz $(BOOTSWATCH)/$(BOOTSWATCH_THEME)/*.scss $(CSS_DIR)/.
 	@rsync -avz $(BOOTSTRAP_SASS)/fonts/bootstrap/* $(FONTS_DIR)/.
 	@rsync -avz $(BOOTSTRAP_SASS)/javascripts/bootstrap.js $(JS_DIR)/.
 	@rsync -avz $(JQUERY)/jquery.js $(JS_DIR)/.
