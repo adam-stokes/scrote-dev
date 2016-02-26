@@ -2,11 +2,14 @@ MODULES_DIR ?= $(shell pwd)/node_modules
 MODULES_BIN ?= $(MODULES_DIR)/.bin
 NODE_ENV ?= dev
 
+# BINS
 MOCHA := $(MODULES_BIN)/mocha
 UGLIFY := $(MODULES_BIN)/uglifyjs
+NODE_SASS := $(MODULES_BIN)/node-sass
+
+# ASSETS
 BOOTSTRAP_SASS := $(MODULES_DIR)/bootstrap-sass/assets
 JQUERY := $(MODULES_DIR)/jquery/dist
-
 ASSETS_DIR := $(shell pwd)/assets
 JS_DIR := $(ASSETS_DIR)/javascripts
 CSS_DIR := $(ASSETS_DIR)/stylesheets
@@ -32,7 +35,7 @@ vendor-sync:
 	@rsync -avz $(JQUERY)/jquery.js $(JS_DIR)/.
 
 scss:
-	@node-sass --output-style compressed $(CSS_DIR)/main.scss $(PUBLIC_DIR)/stylesheets/app.css
+	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/main.scss $(PUBLIC_DIR)/stylesheets/app.css
 
 assets: scss
 	@mkdir -p $(PUBLIC_DIR)/javascripts
