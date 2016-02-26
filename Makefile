@@ -4,7 +4,7 @@ NODE_ENV ?= dev
 
 # BINS
 MOCHA := $(MODULES_BIN)/mocha
-UGLIFY := $(MODULES_BIN)/uglifyjs
+UGLIFYJS := $(MODULES_BIN)/uglifyjs
 NODE_SASS := $(MODULES_BIN)/node-sass
 
 # ASSETS
@@ -42,7 +42,7 @@ assets: scss
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
-	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js | uglifyjs -c -o $(PUBLIC_DIR)/javascripts/app.min.js
+	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
 	@rsync -avz $(FONTS_DIR)/. $(PUBLIC_DIR)/fonts/.
 
 serve: assets
