@@ -7,6 +7,7 @@ MOCHA := $(MODULES_BIN)/mocha
 UGLIFYJS := $(MODULES_BIN)/uglifyjs
 NODE_SASS := $(MODULES_BIN)/node-sass
 JADE := $(MODULES_BIN)/jade
+HTTP_SERVER := $(MODULES_BIN)/http-server
 
 # ASSETS
 BOOTSTRAP_SASS := $(MODULES_DIR)/bootstrap-sass/assets
