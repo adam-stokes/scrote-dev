@@ -1,5 +1,3 @@
-PROJECT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-
 MODULES_DIR ?= $(shell pwd)/node_modules
 MODULES_BIN ?= $(MODULES_DIR)/.bin
 NODE_ENV ?= dev
@@ -58,9 +56,9 @@ help:
 
 setup:
 	@echo
-	@echo " Setting up project structure"
+	@echo " Setting up project structure: $(shell pwd)"
 	@echo
-	@mkdir -p $(PROJECT_DIR)/test || true
+	@mkdir -p $(shell pwd)/test || true
 
 
 .PHONY: test serve assets scss vendor-sync help setup
