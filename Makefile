@@ -38,7 +38,10 @@ vendor-sync:
 scss:
 	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 
-assets: scss
+clean:
+	@if [ -d $(PUBLIC_DIR) ]; then rm -rf $(PUBLIC_DIR); fi
+
+assets: clean scss
 	@mkdir -p $(PUBLIC_DIR)/javascripts
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
