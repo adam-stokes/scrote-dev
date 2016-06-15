@@ -1,3 +1,5 @@
+PROJECT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+
 MODULES_DIR ?= $(shell pwd)/node_modules
 MODULES_BIN ?= $(MODULES_DIR)/.bin
 NODE_ENV ?= dev
@@ -54,5 +56,12 @@ help:
 	@echo "  serve  - webserver"
 	@echo
 
+setup:
+	@echo
+	@echo " Setting up project structure"
+	@echo
+	@mkdir -p $(PROJECT_DIR)/test || true
 
-.PHONY: test serve assets scss vendor-sync help
+
+.PHONY: test serve assets scss vendor-sync help setup
+all: assets
