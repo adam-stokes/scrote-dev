@@ -13,4 +13,8 @@ test-local:
 
 ### scss
 
-To process scss make a directory **assets/stylesheets/** with the file `main.scss`
+To process scss make a directory **assets/stylesheets/** with the file `app.scss`
+
+### rendered output
+
+Everything is rendered into `public` directory.

@@ -36,14 +36,14 @@ vendor-sync:
 	@rsync -avz $(JQUERY)/jquery.js $(JS_DIR)/.
 
 scss:
-	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/main.scss $(PUBLIC_DIR)/stylesheets/app.css
+	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 
 assets: scss
 	@mkdir -p $(PUBLIC_DIR)/javascripts
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
-	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
+	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/main.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
 	@rsync -avz $(FONTS_DIR)/. $(PUBLIC_DIR)/fonts/.
 
 serve: assets
