@@ -59,6 +59,7 @@ setup:
 	@echo " Setting up project structure: $(shell pwd)"
 	@echo
 	@mkdir -p $(shell pwd)/test || true
+	@mkdir -p $(CSS_DIR) $(JS_DIR) $(FONTS_DIR) || true
 
 
 .PHONY: test serve assets scss vendor-sync help setup
