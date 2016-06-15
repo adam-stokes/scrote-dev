@@ -6,6 +6,7 @@ NODE_ENV ?= dev
 MOCHA := $(MODULES_BIN)/mocha
 UGLIFYJS := $(MODULES_BIN)/uglifyjs
 NODE_SASS := $(MODULES_BIN)/node-sass
+JADE := $(MODULES_BIN)/jade
 
 # ASSETS
 BOOTSTRAP_SASS := $(MODULES_DIR)/bootstrap-sass/assets
