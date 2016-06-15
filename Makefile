@@ -46,7 +46,7 @@ assets: clean scss
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
-	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/main.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
+	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/app.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
 	@rsync -avz $(FONTS_DIR)/. $(PUBLIC_DIR)/fonts/.
 
 serve: assets
