@@ -16,6 +16,7 @@ ASSETS_DIR := $(shell pwd)/assets
 JS_DIR := $(ASSETS_DIR)/javascripts
 CSS_DIR := $(ASSETS_DIR)/stylesheets
 FONTS_DIR := $(ASSETS_DIR)/fonts
+IMAGES_DIR := $(ASSETS_DIR)/images
 
 PUBLIC_DIR := $(shell pwd)/public
 
@@ -32,23 +33,23 @@ test:
 vendor-sync:
 	@rsync -avz $(BOOTSTRAP_SASS)/stylesheets/* $(CSS_DIR)/.
 	@rsync -avz $(BOOTSWATCH)/$(BOOTSWATCH_THEME)/*.scss $(CSS_DIR)/.
-	@rsync -avz $(BOOTSTRAP_SASS)/fonts/bootstrap/* $(FONTS_DIR)/.
+	@rsync -avz $(BOOTSTRAP_SASS)/fonts/bootstrap $(FONTS_DIR)
 	@rsync -avz $(BOOTSTRAP_SASS)/javascripts/bootstrap.js $(JS_DIR)/.
 	@rsync -avz $(JQUERY)/jquery.js $(JS_DIR)/.
-
-scss:
-	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 
 clean:
 	@if [ -d $(PUBLIC_DIR) ]; then rm -rf $(PUBLIC_DIR); fi
 
-assets: clean scss
+assets: clean
 	@mkdir -p $(PUBLIC_DIR)/javascripts
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
+
+	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/app.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
 	@rsync -avz $(FONTS_DIR)/. $(PUBLIC_DIR)/fonts/.
+	@rsync -avz $(IMAGES_DIR)/. $(PUBLIC_DIR)/images/.
 
 serve: assets
 	DEBUG=$(NODE_ENV) NODE_ENV=$(NODE_ENV) node index
