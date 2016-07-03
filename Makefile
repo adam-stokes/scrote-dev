@@ -28,9 +28,6 @@ PUBLIC_DIR := $(shell pwd)/public
 BOOTSWATCH := $(MODULES_DIR)/bootswatch
 BOOTSWATCH_THEME ?= simplex
 
-test:
-	NODE_ENV=$(NODE_ENV) $(MOCHA)
-
 vendor-sync:
 	@rsync -avz $(BOOTSTRAP_SASS)/stylesheets/* $(CSS_DIR)/.
 	@rsync -avz $(BOOTSWATCH)/$(BOOTSWATCH_THEME)/*.scss $(CSS_DIR)/.
@@ -65,7 +62,6 @@ setup:
 	@echo
 	@echo " Setting up project structure: $(shell pwd)"
 	@echo
-	@mkdir -p $(shell pwd)/test || true
 	@mkdir -p $(CSS_DIR) $(JS_DIR) $(FONTS_DIR) || true
 
 
