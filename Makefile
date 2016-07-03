@@ -17,6 +17,7 @@ JS_DIR := $(ASSETS_DIR)/javascripts
 CSS_DIR := $(ASSETS_DIR)/stylesheets
 FONTS_DIR := $(ASSETS_DIR)/fonts
 IMAGES_DIR := $(ASSETS_DIR)/images
+UPLOADS_DIR := $(ASSETS_DIR)/uploads
 
 PUBLIC_DIR := $(shell pwd)/public
 
@@ -45,6 +46,7 @@ assets: clean
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
+	@mkdir -p $(UPLOADS_DIR)
 
 	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/app.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
