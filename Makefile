@@ -43,7 +43,7 @@ assets: clean
 	@mkdir -p $(PUBLIC_DIR)/stylesheets
 	@mkdir -p $(PUBLIC_DIR)/fonts
 	@mkdir -p $(PUBLIC_DIR)/images
-	@mkdir -p $(UPLOADS_DIR)
+	@mkdir -p $(PUBLIC_DIR)/uploads
 
 	@$(NODE_SASS) --output-style compressed $(CSS_DIR)/app.scss $(PUBLIC_DIR)/stylesheets/app.css
 	@cat $(JS_DIR)/jquery.js $(JS_DIR)/bootstrap.js $(JS_DIR)/app.js | $(UGLIFYJS) -c -o $(PUBLIC_DIR)/javascripts/app.min.js
