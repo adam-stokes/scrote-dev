@@ -65,7 +65,7 @@ setup:
 	@mkdir -p $(CSS_DIR) $(JS_DIR) $(FONTS_DIR) || true
 
 watch:
-	$(MODULES_BIN)/nodemon --watch lib --watch public
+	$(MODULES_BIN)/nodemon --watch lib --watch public --watch index.js
 
 .PHONY: test serve assets scss vendor-sync help setup watch
 all: assets
